@@ -1,0 +1,37 @@
+.trackerItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px 20px 20px;
+  font-size: 18px;
+  border-top: 1px solid lightgrey;
+  font-weight: bold;
+
+  &:last-child {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  &RightSide {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.timeInfo {
+  margin-right: 28px;
+}
+
+.button {
+  font-size: 28px !important;
+  cursor: pointer;
+
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+  }
+}
+
+.removeButton {
+  color: rgb(179, 21, 21);
+}
