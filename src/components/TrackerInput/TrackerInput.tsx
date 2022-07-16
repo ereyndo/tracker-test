@@ -6,7 +6,7 @@ type TrackerInputProps = {};
 
 export const TrackerInput = () => {
   return (
-    <div className={styles.inputContainer}>
+    <div className={styles.trackerInput}>
       <input
         type="text"
         className={styles.inputField}
