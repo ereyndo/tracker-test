@@ -1,7 +1,7 @@
 import styles from './trackerInput.module.scss';
 import { mdiPlayCircle } from '@mdi/js';
 import Icon from '@mdi/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { addTrackerItemDataAndUpdateLocalStorage } from '../../slices/trackerItemsDataSlice';
 import moment from 'moment';
@@ -15,6 +15,12 @@ export const TrackerInput = () => {
 
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
+  };
+
+  const addTrackerOnEnterHandler = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      addTrackerHandler();
+    }
   };
 
   const addTrackerHandler = () => {
@@ -42,6 +48,7 @@ export const TrackerInput = () => {
         placeholder="Enter tracker name"
         value={input}
         onChange={inputChangeHandler}
+        onKeyUp={addTrackerOnEnterHandler}
       />
       <a
         className={styles.trackerInput__addIcon}
