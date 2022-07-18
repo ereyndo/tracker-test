@@ -1,3 +1,5 @@
+@import '../../assets/styles/mixin';
+
 .trackerItem {
   display: flex;
   align-items: center;
@@ -9,8 +11,21 @@
   background-color: rgb(251, 251, 247);
   border-top: 1px solid lightgrey;
 
+  @include screen-xs {
+    padding: 20px 10px;
+  }
+
   &:last-child {
     border-bottom: 1px solid lightgrey;
+  }
+
+  &__name {
+    width: calc(100% - 200px);
+    overflow-wrap: break-word;
+
+    @include screen-xs {
+      width: calc(100% - 170px);
+    }
   }
 
   &__rightSide {
@@ -19,7 +34,11 @@
   }
 
   &__timeInfo {
-    margin-right: 28px;
+    margin: 0 28px 0 20px;
+
+    @include screen-xs {
+      margin: 0 10px 0 10px;
+    }
   }
 
   &__button {
@@ -31,6 +50,10 @@
       display: flex;
       justify-content: space-between;
       width: 70px;
+
+      @include screen-xs {
+        width: 65px;
+      }
     }
   }
 
