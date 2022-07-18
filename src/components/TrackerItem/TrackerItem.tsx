@@ -102,7 +102,7 @@ export const TrackerItem = ({
       ${!playStatus ? styles.trackerItem_paused : ''}
       `}
     >
-      <p>{name}</p>
+      <p className={styles.trackerItem__name}>{name}</p>
       <div className={styles.trackerItem__rightSide}>
         <p className={styles.trackerItem__timeInfo}>
           {moment.duration(timeCounter, 'milliseconds').format('HH:mm:ss', {
