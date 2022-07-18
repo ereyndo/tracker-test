@@ -3,34 +3,6 @@ import moment from 'moment';
 import { TrackerItemData } from '../models';
 import { AppDispatch, RootState } from '../store';
 
-const initialState = (): Array<TrackerItemData> => {
-  return Object.entries(localStorage).reduce((acc, el) => {
-    const id = el[0];
-    const { name, timeCounter, lastPlayTimestamp, playStatus } = JSON.parse(
-      el[1]
-    );
-    const incomingTrackerItemData: TrackerItemData = {
-      id,
-      name,
-      timeCounter: Number(timeCounter),
-      lastPlayTimestamp: Number(lastPlayTimestamp),
-      playStatus: JSON.parse(playStatus),
-    };
-
-    const finalTrackerItemData = JSON.parse(playStatus)
-      ? updateTrackerItemDataAndLocalStorageOnPlayStatusTrue(
-          incomingTrackerItemData
-        )
-      : incomingTrackerItemData;
-
-    acc.push({
-      ...finalTrackerItemData,
-    });
-
-    return acc;
-  }, [] as Array<TrackerItemData>);
-};
-
 const updateTrackerItemDataAndLocalStorageOnPlayStatusTrue = ({
   id,
   name,
@@ -55,12 +27,49 @@ const updateTrackerItemDataAndLocalStorageOnPlayStatusTrue = ({
   return { id, ...updatedPayload };
 };
 
+const compareTrackerItems = (
+  firstItem: TrackerItemData,
+  secondItem: TrackerItemData
+): number => {
+  return Number(secondItem.id) - Number(firstItem.id);
+};
+
+const initialState = (): Array<TrackerItemData> => {
+  return Object.entries(localStorage)
+    .reduce((acc, el) => {
+      const id = el[0];
+      const { name, timeCounter, lastPlayTimestamp, playStatus } = JSON.parse(
+        el[1]
+      );
+      const incomingTrackerItemData: TrackerItemData = {
+        id,
+        name,
+        timeCounter: Number(timeCounter),
+        lastPlayTimestamp: Number(lastPlayTimestamp),
+        playStatus: JSON.parse(playStatus),
+      };
+
+      const finalTrackerItemData = JSON.parse(playStatus)
+        ? updateTrackerItemDataAndLocalStorageOnPlayStatusTrue(
+            incomingTrackerItemData
+          )
+        : incomingTrackerItemData;
+
+      acc.push({
+        ...finalTrackerItemData,
+      });
+
+      return acc;
+    }, [] as Array<TrackerItemData>)
+    .sort(compareTrackerItems);
+};
+
 export const trackerItemsDataSlice = createSlice({
   name: 'trackerItemsData',
   initialState,
   reducers: {
     addTrackerItemData: (state, action: PayloadAction<TrackerItemData>) => {
-      state.push(action.payload);
+      state.unshift(action.payload);
     },
     removeTrackerItemData: (state, action: PayloadAction<string>) => {
       return state.filter((item) => action.payload !== item.id);
