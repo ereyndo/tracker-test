@@ -4,34 +4,42 @@
   justify-content: space-between;
   padding: 20px 10px 20px 20px;
   font-size: 18px;
-  border-top: 1px solid lightgrey;
   font-weight: bold;
+  color: #5e9927;
+  background-color: rgb(251, 251, 247);
+  border-top: 1px solid lightgrey;
 
   &:last-child {
     border-bottom: 1px solid lightgrey;
   }
 
-  &RightSide {
+  &__rightSide {
     display: flex;
     align-items: center;
   }
-}
 
-.timeInfo {
-  margin-right: 28px;
-}
-
-.button {
-  font-size: 28px !important;
-  cursor: pointer;
-
-  &Container {
-    display: flex;
-    justify-content: space-between;
-    width: 70px;
+  &__timeInfo {
+    margin-right: 28px;
   }
-}
 
-.removeButton {
-  color: rgb(179, 21, 21);
+  &__button {
+    font-size: 28px !important;
+    color: black;
+    cursor: pointer;
+
+    &Container {
+      display: flex;
+      justify-content: space-between;
+      width: 70px;
+    }
+  }
+
+  &__removeButton {
+    color: rgb(179, 21, 21);
+  }
+
+  &_paused {
+    color: black;
+    background-color: transparent;
+  }
 }
