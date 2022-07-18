@@ -1,0 +1,5 @@
+@mixin screen-xs {
+  @media (max-width: 569px) {
+    @content;
+  }
+}

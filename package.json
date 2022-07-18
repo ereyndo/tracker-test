@@ -19,10 +19,18 @@
   "author": "Ross",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mdi/js": "^6.9.96",
+    "@mdi/react": "^1.6.0",
+    "@mui/icons-material": "^5.8.4",
     "@reduxjs/toolkit": "^1.8.3",
     "moment": "^2.29.4",
+    "moment-duration-format": "^2.3.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -32,6 +40,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@babel/runtime": "^7.18.6",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+    "@types/moment-duration-format": "^2.2.3",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.24",
@@ -54,6 +63,8 @@
     "moment-locales-webpack-plugin": "^1.2.0",
     "prettier": "^2.7.1",
     "react-refresh": "^0.14.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
     "typescript": "^4.7.4",
     "webpack": "^5.73.0",

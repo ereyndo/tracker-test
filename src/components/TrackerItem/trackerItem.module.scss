@@ -1,0 +1,45 @@
+.trackerItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px 20px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #5e9927;
+  background-color: rgb(251, 251, 247);
+  border-top: 1px solid lightgrey;
+
+  &:last-child {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  &__rightSide {
+    display: flex;
+    align-items: center;
+  }
+
+  &__timeInfo {
+    margin-right: 28px;
+  }
+
+  &__button {
+    font-size: 28px !important;
+    color: black;
+    cursor: pointer;
+
+    &Container {
+      display: flex;
+      justify-content: space-between;
+      width: 70px;
+    }
+  }
+
+  &__removeButton {
+    color: rgb(179, 21, 21);
+  }
+
+  &_paused {
+    color: black;
+    background-color: transparent;
+  }
+}

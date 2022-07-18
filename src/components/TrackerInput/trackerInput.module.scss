@@ -1,0 +1,42 @@
+@import '../../assets/styles/mixin';
+
+.trackerInput {
+  position: relative;
+  margin-bottom: 25px;
+
+  &__inputField {
+    width: 100%;
+    height: 50px;
+    padding: 0 55px 0 15px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 25px;
+    outline: none;
+
+    @include screen-xs {
+      width: calc(100% - 20px);
+      margin: 0 10px;
+    }
+
+    &::placeholder {
+      color: lightgrey;
+    }
+  }
+
+  &__addIcon {
+    position: absolute;
+    width: 54px;
+    right: -2px;
+    top: -2px;
+    color: #5e9927;
+    cursor: pointer;
+
+    &:hover {
+      color: #81bc4a;
+    }
+
+    @include screen-xs {
+      right: 9px;
+    }
+  }
+}

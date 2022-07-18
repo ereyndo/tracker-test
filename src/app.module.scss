@@ -1,0 +1,22 @@
+@import './assets/styles/mixin';
+
+.app {
+  max-width: 560px;
+  min-width: 320px;
+  overflow-x: hidden;
+  margin: 110px auto 0;
+
+  @include screen-xs {
+    margin: 80px 10px 0;
+  }
+}
+
+.title {
+  margin-bottom: 80px;
+  font-size: 56px;
+  text-align: center;
+
+  @include screen-xs {
+    margin-bottom: 70px;
+  }
+}
