@@ -18,14 +18,15 @@ export const TrackerInput = () => {
   };
 
   const addTrackerHandler = () => {
-    const trackerId = moment().valueOf().toString();
+    const currentPlayTimestamp = moment().valueOf();
+    const trackerId = currentPlayTimestamp.toString();
     const trackerName = input ? input : `No name tracker #${trackerId}`;
     const trackerItemData: TrackerItemData = {
       id: trackerId,
       name: trackerName,
       timeCounter: 0,
-      playStatus: false,
-      lastPlayTimestamp: 0,
+      playStatus: true,
+      lastPlayTimestamp: currentPlayTimestamp,
     };
 
     dispatch(addTrackerItemDataAndUpdateLocalStorage(trackerItemData));
